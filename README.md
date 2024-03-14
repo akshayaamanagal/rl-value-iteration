@@ -53,28 +53,40 @@ The algorithm is guaranteed to converge to the optimal value function, and in th
     For all the states s and all the action a of every state:
     
        Update the action-value function Q(s, a) using the Bellman equation.
-
-
-        Take the value function V(s) to be the maximum of Q(s, a) over all actions a.
-
-
-        Check if the maximum difference between Old V and new V is less than theta.
-
-
-        Where theta is a small positive number that determines the accuracy of estimation.
-
-    
-3. If the maximum difference between Old V and new V is greater than theta, then
+   
+       Take the value function V(s) to be the maximum of Q(s, a) over all actions a.
+   
+       Check if the maximum difference between Old V and new V is less than theta.
+   
+       Where theta is a small positive number that determines the accuracy of estimation.
+   
+4. If the maximum difference between Old V and new V is greater than theta, then
 
     Update the value function V with the maximum action-value from Q.
 
     Go to step 2.
 
-4. The optimal policy can be constructed by taking the argmax of the action-value function Q(s, a) over all actions a.
-5. Return the optimal policy and the optimal value function.
+5. The optimal policy can be constructed by taking the argmax of the action-value function Q(s, a) over all actions a.
+6. Return the optimal policy and the optimal value function.
+## CODE FOR VALUE ITERATION FUNCTION
+```
+DEVELOPED BY: AKSHAYAA M
+REGISTER NUMBER: 212222230009
+```
+
+## CODE FOR GOAL STATE(0,1)
+```
+desc=['SGFF','FHFH','FFFH','HFFF']
+env = gym.make('FrozenLake-v1',desc=desc)
+init_state = env.reset()
+goal_state = 1
+P = env.env.P
+init_state
+```
 
 ## VALUE ITERATION FUNCTION
 ```
+
 def value_iteration(P, gamma=1.0, theta=1e-10):
     V = np.zeros(len(P), dtype=np.float64)
     while True:
@@ -105,8 +117,11 @@ print('Reaches goal {:.2f}%. Obtains an average undiscounted return of {:.4f}.'.
 print_state_value_function(V_best_v, P, prec=4)
 ```
 ## OUTPUT:
+### The Optimal Policy
 ![rl-value-iteration](4.png)
+### Success Rate
 ![rl-value-iteration](2.png)
+### State Value Function
 ![rl-value-iteration](3.png)
 ## RESULT:
 
